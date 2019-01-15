@@ -1,0 +1,78 @@
+html, body {
+  height: 100%;
+}
+
+body {
+  padding: 1.5rem;
+  font-size: 20px;
+  font-family: "Roboto Mono", monospace;
+  background-color: blue;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.button {
+  text-decoration: none;
+  display: inline-block;
+  border: 0.2rem solid yellow;
+  //border-radius: 1rem;
+  padding: .5em 1.6em .6em;
+  letter-spacing: .5em;
+}
+.button:hover {
+  background-color: rgba(0,0,0,.2);
+}
+
+p, a, .code {
+  font-size: 1.8rem;
+  line-height: 1.4em;
+  color: yellow;
+  text-shadow: 0 0 3px yellow;
+}
+
+.mark {
+  width: 100%;
+  height: 100%;
+  border: 0.2rem solid yellow;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  border-radius: 1rem;
+}
+
+main {
+  text-align: center;
+}
+
+.code {
+  width: auto;
+  margin: 0 auto;
+  height: 4rem;
+  line-height: 2.2em;
+  letter-spacing: 1em;
+  border-bottom: 0.2rem solid yellow;;
+  background: rgba(0,0,0,.2);
+  outline: 0;
+  margin-bottom: 4rem;
+  text-align: center;
+  padding-left: 1em;
+  caret-color: yellow;
+}
+
+.code:focus {
+  background: rgba(0,0,0,.3);
+}
+
+.scanlines {
+  background-image: repeating-linear-gradient(transparent, rgba(0,0,0,.2) .05rem), radial-gradient(circle closest-corner, rgba(0,0,0,0), rgba(0,0,0,.2));
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
