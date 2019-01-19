@@ -17,6 +17,7 @@ body {
   font-size: 20px;
   font-family: "CatV6x129Normal", monospace;
   font-weight: regular;
+  background-color: #000;
 }
 
 .button {
@@ -218,23 +219,27 @@ img {
   100% {background-color: rgba(0,0,0,.2);}
 }
 
-.intro, .withdrawal {
+/*.intro .frame, .withdrawal .frame {
   animation: on 1s ease 0s 1 forwards;
 }
 
 @keyframes on {
   0% {opacity: 0;}
   100% {opacity: 1;}
-}
+}*/
 
 .out {
+  display: none;
+}
+
+/*.out {
   animation: out 6s linear 0s 1 forwards;
 }
 
 @keyframes out {
   0% { clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 100% 0%);}
-  100% { clip-path: polygon(0% 100%, 0% 100%, 100% 100%, 100% 100%);}
-}
+  100% { clip-path: polygon(0% 100%, 0% 100%, 100% 100%, 100% 100%); display: none;}
+}*/
 
 ::selection {
   background-color: yellow;

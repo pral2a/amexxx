@@ -25,7 +25,7 @@ document.addEventListener('keypress', function(evt) {
 });
 
 function checkCode() {
-	var inputFromForm = code.textContent;
+	var inputFromForm = code.textContent.replace(/\s/g,'');
 	console.log(inputFromForm);
 	if((inputFromForm >= 771782 - 100 && inputFromForm <= 771782) || inputFromForm == 'MDSKPR') {
 	  code.textContent = "♥♥♥♥♥♥";
