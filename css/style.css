@@ -1,78 +1,251 @@
+/*
+
+AMEXXX GIRLS ATM
+****************
+a musical cross-project by Helena López
+website by @pral2a & @mariaambaccent
+
+*/
+
 html, body {
   height: 100%;
 }
 
+/* Typography */
+
 body {
-  padding: 1.5rem;
   font-size: 20px;
-  font-family: "Roboto Mono", monospace;
-  background-color: blue;
+  font-family: "CatV6x129Normal", monospace;
+  font-weight: regular;
+}
+
+.button {
+  text-decoration: none;
+  background-color: yellow;
+  padding: .5em 1.6em;
+  letter-spacing: .1em;
+}
+.button:visited {
+  color: mediumblue;
+}
+.button:hover {
+  background-color: rgba(0,0,0,.2);
+  color: yellow;
+}
+
+h1, h2, .code {
+  font-size: 3rem;
+  line-height: .9em;
+  letter-spacing: 0.05em;
+}
+h3, p, a {
+  font-size: 2.4rem;
+  line-height: .9em;
+  letter-spacing: 0.05em;
+}
+
+i {
+  display: inline-block;
+  transform: skew(-20deg) translate(-.15em);
+}
+
+/* GUI */
+
+.intro, .withdrawal {
+  background-color: mediumblue;
+  color: #ffff00;
+  text-shadow: -1px 0 1px yellow, 1px 0 1px yellow;
+  padding: 1.5rem;
+  width: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-content: center;
   align-items: center;
   box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
 }
 
-.button {
-  text-decoration: none;
-  display: inline-block;
-  border: 0.2rem solid yellow;
-  //border-radius: 1rem;
-  padding: .5em 1.6em .6em;
-  letter-spacing: .5em;
-}
-.button:hover {
-  background-color: rgba(0,0,0,.2);
+.withdrawal {
+  position: relative;
+  z-index: 1;
+  display: block;
+  height: auto;
 }
 
-p, a, .code {
-  font-size: 1.8rem;
-  line-height: 1.4em;
-  color: yellow;
-  text-shadow: 0 0 3px yellow;
-}
-
-.mark {
+.frame {
   width: 100%;
   height: 100%;
-  border: 0.2rem solid yellow;
+  border: 6px solid yellow;
   display: flex;
   justify-content: center;
   align-content: center;
   align-items: center;
   border-radius: 1rem;
+  -webkit-filter: blur(.8px);
+  filter: blur(.8px);
+  box-sizing: border-box;
 }
+  .withdrawal .frame {
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-content: flex-start;
+    align-items: flex-start;
+    padding: 4rem;
+  }
+  article {
+    max-width: 50vw;
+  }
+  .withdrawal article, .withdrawal h2 {
+    margin-bottom: 3rem;
+  }
 
 main {
   text-align: center;
 }
 
 .code {
-  width: auto;
+  width: 100%;
+  max-width: 640px;
   margin: 0 auto;
   height: 4rem;
-  line-height: 2.2em;
-  letter-spacing: 1em;
-  border-bottom: 0.2rem solid yellow;;
+  line-height: 1.5em;
+  border-bottom: 6px solid yellow;;
   background: rgba(0,0,0,.2);
   outline: 0;
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
   text-align: center;
-  padding-left: 1em;
   caret-color: yellow;
+  overflow: hidden;
 }
-
 .code:focus {
   background: rgba(0,0,0,.3);
 }
 
+.info {
+  margin-top: 6rem;
+}
+
+.info p {
+  font-size: 1.6rem;
+}
+
+/* imgs */
+
+img {
+  filter: blur(.8px);
+}
+
+.head {
+  position: absolute;
+  width: 12vw;
+  left: 4vw;
+  top: 10vw;
+}
+  .withdrawal .head {
+    left: auto;
+    right: 22vw;
+    position: fixed !important;
+  }
+
+.logo {
+  position: absolute;
+  width: 32vw;
+  left: 4vw;
+  top: 3.8vw;
+}
+  .withdrawal .logo {
+    left: auto;
+    right: 4vw;
+    position: fixed !important;
+  }
+
+.debuggo {
+  position: absolute;
+  width: 24vw;
+  right: 3.6vw;
+  bottom: 6.2vw;
+  transform: rotate(-15deg);
+}
+  .withdrawal .debuggo {
+    transform: rotate(15deg);
+  }
+
+/* player */
+
+.audio span {
+  cursor: pointer;
+  background-color: yellow;
+  color: mediumblue;
+  display: inline-block;
+  padding: .2rem .5rem;
+}
+  .audio span:hover {
+    color: yellow;
+    background-color: rgba(0,0,0,.2);
+  }
+
+/* Effects */
+
 .scanlines {
-  background-image: repeating-linear-gradient(transparent, rgba(0,0,0,.2) .05rem), radial-gradient(circle closest-corner, rgba(0,0,0,0), rgba(0,0,0,.2));
+  background-image: linear-gradient(transparent 0%, rgba(0,0,0,.2) 25%);
+	background-size: 3px 3px;
+}
+
+.vignette {
+  background-image: radial-gradient(circle closest-corner, rgba(0,0,0,0), rgba(0,0,0,.2));
+}
+
+.dumb {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   pointer-events: none;
+  z-index: 9;
+}
+
+.error {
+  animation: error 1s ease 0s 1 forwards;
+}
+
+@keyframes error {
+  0% {background-color: red;}
+  100% {background-color: rgba(0,0,0,.2);}
+}
+
+.intro, .withdrawal {
+  animation: on 1s ease 0s 1 forwards;
+}
+
+@keyframes on {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+.out {
+  animation: out 6s linear 0s 1 forwards;
+}
+
+@keyframes out {
+  0% { clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 100% 0%);}
+  100% { clip-path: polygon(0% 100%, 0% 100%, 100% 100%, 100% 100%);}
+}
+
+::selection {
+  background-color: yellow;
+  color: mediumblue;
+}
+
+/* media queries */
+@media screen and (max-width: 640px) {
+  .intro, .withdrawal {padding: .5rem;}
+  .withdrawal .frame { padding: 1rem;}
+  article { max-width: 100%;}
+  .floating {display:none;}
+  .button { padding: .6rem 1rem; letter-spacing: 0}
 }
